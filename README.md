@@ -1,24 +1,14 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Authenticate your Rails Api
 
-Things you may want to cover:
+ /signup
 
-* Ruby version
+ `curl -X POST --data "name=test"  --data "email=test@test.com"  --data "password=password"  --data "password_confirmation=password" http://localhost:3000/signup`
 
-* System dependencies
+/auth/login
 
-* Configuration
+`curl -X POST --data "email=test@test.com"  --data "password=password" http://localhost:3000/auth/login`
 
-* Database creation
 
-* Database initialization
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
