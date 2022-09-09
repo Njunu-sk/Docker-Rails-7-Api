@@ -1,5 +1,19 @@
 # README
 
+Clone the Repo 
+
+Run docker image 
+
+`docker-compose up`
+
+Set up your database
+
+`docker compose run --rm app bin/rails db:reset`
+
+Vefify container is up 
+
+`docker ps`
+
 Authenticate your Rails Api
 
  /signup
