@@ -1,0 +1,30 @@
+FROM ruby:3.0.3-alpine
+
+RUN apk add --no-cache --update build-base \
+  bash \
+  git \
+  postgresql-dev \
+  nodejs \
+  && rm -rf /var/cache/apk/*
+
+RUN mkdir -p /app
+WORKDIR /app
+
+COPY Gemfile Gemfile.lock ./
+RUN gem install bundler
+RUN gem update --system
+RUN bundle install -j $(nproc)
+
+ENV RAILS_ENV=production
+ENV RAILS_LOG_TO_STDOUT=true
+ENV RAILS_SERVE_STATIC_FILES=true
+
+COPY . .
+
+COPY entrypoint.sh /usr/bin/
+RUN chmod +x /usr/bin/entrypoint.sh
+ENTRYPOINT [ "entrypoint.sh" ]
+
+
+# Configure the main process to run when running the image
+CMD ["rails", "server", "-b", "0.0.0.0"]
