@@ -48,6 +48,8 @@
 - Push image to docker hub
 
   `docker push username/authenticate-api:prod`
+  
+  ![Screenshot 2022-09-16 at 21 42 25](https://user-images.githubusercontent.com/50931990/190710328-d815498f-7fd3-4223-81e8-a9c8574edd23.png)
 
 ## Note
 
@@ -68,6 +70,10 @@
 - SSH into instance
 
   `docker-machine ssh local-vm-1`
+  
+- Docker version
+
+  `docker -v`
 
 ## Docker Swarm
 
@@ -83,12 +89,6 @@
 - Create a stackfile
 
   `cp docker-compose.yml docker-stack.yml`
-
-- Rebuild image and push changes to Docker Hub
-
-  `docker build -f Dockerfile.prod -t username/authenticate-api:prod .`
-
-  `docker push username/authenticate-api:prod`
 
 - Deploy to swarm
 
